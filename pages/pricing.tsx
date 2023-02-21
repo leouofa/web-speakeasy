@@ -9,14 +9,14 @@ interface Props {
   products: Product[];
 }
 
-export default function IndexPage({ products }: Props) {
+export default function PricingPage({ products }: Props) {
   const { user } = useUser();
 
   return (
-      <>
-        {user ? (<Messaging />) : (<Pricing products={products} />)}
-      </>
-    )
+    <>
+      <Pricing products={products} />
+    </>
+  )
 }
 
 export async function getStaticProps(): Promise<GetStaticPropsResult<Props>> {
