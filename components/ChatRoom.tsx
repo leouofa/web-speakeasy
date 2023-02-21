@@ -23,7 +23,6 @@ function ChatRoom(){
 
   return (
     <div className="">
-      <h1>Hello World</h1>{messages?.count}
       {(messages).map(message => (
         <MessageComponent message={message} key={message.id} />
       ))}
