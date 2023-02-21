@@ -18,7 +18,7 @@ function Messaging(){
 
   return (
     <div className="mx-auto max-w-6xl">
-      <div className="bg-gradient-to-bl bg-amber-900 mx-6">
+      <div className="bg-gradient-to-bl bg-gray-900 mx-6 mb-10">
         <div className="flex justify-between align-center flex-row py-4 md:py-6 relative">
           <div className="flex flex-1 flex-col p-5">
             <Username username={username} />
