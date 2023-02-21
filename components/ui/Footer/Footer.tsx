@@ -7,7 +7,7 @@ export default function Footer() {
   return (
     <footer className="mx-auto max-w-[1920px] px-6 bg-zinc-900">
       <div className="py-6 flex flex-col md:flex-row justify-between items-center space-y-4 bg-zinc-900">
-        <div>&copy; 2023 <span className="text-white font-bold">WEB<span className="text-green-500">SPEAKEASY</span><span className="font-normal">.</span></span> All rights reserved.
+        <div>&copy; 2023 <span className="text-white font-bold">WEB<span className="text-green-500">SPEAKEASY</span><span className="font-extralight">*</span></span>
         </div>
         <div className="flex items-center">
           <a
