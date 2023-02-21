@@ -1,5 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import {Message} from "../../typings";
+import {serverPusher} from "../../pusher";
 
 type Data = {
   message: Message
@@ -25,6 +26,8 @@ export default async function handler(
     ...message,
     created_at: Date.now()
   }
+
+  serverPusher.trigger("messages", "new-message", newMessage);
 
   res.status(200).json({ message: newMessage })
 }
