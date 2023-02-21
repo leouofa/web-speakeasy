@@ -33,7 +33,7 @@ function Messaging(){
         </div>
       </div>
       <ChatRoom />
-      <ChatInput />
+      <ChatInput username={username} />
     </>
   )
 }
