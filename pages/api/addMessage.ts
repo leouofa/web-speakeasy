@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import {Message} from "../../typings";
-import {serverPusher} from "../../pusher";
+import {serverPusher} from "../../serverPusher";
 
 type Data = {
   message: Message

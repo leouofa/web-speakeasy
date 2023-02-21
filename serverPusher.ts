@@ -1,4 +1,4 @@
-import Pusher from "pusher/index";
+import Pusher from "pusher";
 import ClientPusher from "pusher-js";
 
 export const serverPusher = new Pusher({
