@@ -22,6 +22,7 @@ const Navbar = () => {
               <a className={s.logo} aria-label="Logo">
                 <span className="text-white font-bold">WEB
                   <span className="text-green-500">SPEAKEASY</span>
+                  <span className="font-extralight">*</span>
                 </span>
               </a>
             </Link>
