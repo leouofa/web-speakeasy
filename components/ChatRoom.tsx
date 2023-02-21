@@ -4,7 +4,7 @@ import { Message } from '../typings';
 import MessageComponent from 'components/MessageComponent';
 
 function ChatRoom(){
-  const [messages, setMessages] = useState([]);
+  const [messages, setMessages] = useState<any[]>([]);
 
   useEffect(() => {
     const channel = clientPusher.subscribe('messages');
