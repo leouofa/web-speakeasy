@@ -4,14 +4,16 @@ import { Message } from '../typings';
 import MessageComponent from 'components/MessageComponent';
 
 type Props = {
-  encryptedRoom: string;
+  roomHash: string;
 }
 
-function ChatRoom({ encryptedRoom }: Props){
+function ChatRoom({ roomHash }: Props){
   const [messages, setMessages] = useState<any[]>([]);
 
   useEffect(() => {
-    const channel = clientPusher.subscribe('messages');
+    if (!roomHash) return;
+
+    const channel = clientPusher.subscribe(roomHash);
 
     channel.bind('new-message', async (data: Message) => {
       if(messages?.find((message) => message.id === data.id )) return;
@@ -23,7 +25,7 @@ function ChatRoom({ encryptedRoom }: Props){
       channel.unbind_all();
       channel.unsubscribe();
     }
-  }, [messages, clientPusher])
+  }, [messages, roomHash, clientPusher])
 
   return (
     <div className="">

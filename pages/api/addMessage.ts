@@ -27,7 +27,7 @@ export default async function handler(
     created_at: Date.now()
   }
 
-  serverPusher.trigger("messages", "new-message", newMessage);
+  serverPusher.trigger(message.channel, "new-message", newMessage);
 
   res.status(200).json({ message: newMessage })
 }
