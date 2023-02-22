@@ -6,9 +6,10 @@ import {Message} from "../typings";
 
 type Props = {
   username: string;
+  channel: string;
 }
 
-function ChatInput({ username }: Props){
+function ChatInput({ username, channel }: Props){
   const [input, setInput] = useState("");
 
   const addMessage = (e: FormEvent<HTMLFormElement>) => {
@@ -28,6 +29,7 @@ function ChatInput({ username }: Props){
       message: messageToSend,
       created_at: Date.now(),
       username: username,
+      channel: channel,
     }
 
     const uploadMessage = async () => {

@@ -1,5 +1,5 @@
 import Gate from 'components/Gate';
-import Username from 'components/Username';
+import UserData from '@/components/UserData';
 import { useState } from 'react';
 import ChatInput from 'components/ChatInput';
 import ChatRoom from 'components/ChatRoom';
@@ -22,12 +22,12 @@ function Messaging(){
   }
 
   const [username, setUsername] = useState(generate_username());
-  const [room, setRoom] = useState<string>("");
+  const [passphrase, setPassphrase] = useState<string>("");
   const [roomHash, setRoomHash] = useState<string>("");
 
   const updateRoomData = ({ roomName, digest}: RoomDataProps) => {
-    setRoom(roomName);
-    setRoomHash(digest);
+    setPassphrase(roomName);
+    setRoomHash(digest.substring(0,20));
   }
 
   return (
@@ -41,18 +41,16 @@ function Messaging(){
           </div>
           <div className="flex justify-between align-center flex-row py-4 md:py-6 relative">
             <div className="flex flex-1 flex-col p-5">
-              <Username username={username} />
+              <UserData username={username} roomHash={roomHash} />
             </div>
             <div className="flex flex-1 justify-end p-5">
-              <h1>Room {room}</h1>
-              <h1>Encrypted Room{roomHash}</h1>
               <Gate updateRoomData={updateRoomData} />
             </div>
           </div>
         </div>
       </div>
-      <ChatRoom encryptedRoom={roomHash} />
-      <ChatInput username={username} />
+      <ChatRoom roomHash={roomHash} />
+      <ChatInput username={username} channel={roomHash} />
     </>
   )
 }
