@@ -4,10 +4,11 @@ import { Message } from '../typings';
 import MessageComponent from 'components/MessageComponent';
 
 type Props = {
+  username: string;
   roomHash: string;
 }
 
-function ChatRoom({ roomHash }: Props){
+function ChatRoom({ username, roomHash }: Props){
   const [messages, setMessages] = useState<any[]>([]);
 
   useEffect(() => {
@@ -30,7 +31,7 @@ function ChatRoom({ roomHash }: Props){
   return (
     <div className="space-y-5 px-5 pt-8 pb-32 max-w-2xl xl:max-w-4xl mx-auto">
       {(messages).map(message => (
-        <MessageComponent message={message} key={message.id} />
+        <MessageComponent message={message} username={username} key={message.id} />
       ))}
     </div>
 

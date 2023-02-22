@@ -49,7 +49,7 @@ function Messaging(){
           </div>
         </div>
       </div>
-      <ChatRoom roomHash={roomHash} />
+      <ChatRoom username={username} roomHash={roomHash} />
       <ChatInput username={username} channel={roomHash} />
     </>
   )
