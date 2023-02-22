@@ -16,7 +16,7 @@ function Gate({ updateRoomData }: Props){
 
     digested_message.then((digest_hex) => {
       return (
-        setRoom({
+        updateRoomData({
           roomName: input,
           digest: digest_hex
         })
