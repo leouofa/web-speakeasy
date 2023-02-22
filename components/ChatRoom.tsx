@@ -3,7 +3,11 @@ import { clientPusher } from '../serverPusher';
 import { Message } from '../typings';
 import MessageComponent from 'components/MessageComponent';
 
-function ChatRoom(){
+type Props = {
+  encryptedRoom: string;
+}
+
+function ChatRoom({ encryptedRoom }: Props){
   const [messages, setMessages] = useState<any[]>([]);
 
   useEffect(() => {
