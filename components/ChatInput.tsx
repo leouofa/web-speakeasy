@@ -4,7 +4,11 @@ import {FormEvent, useState} from "react";
 import {v4 as uuid} from 'uuid';
 import {Message} from "../typings";
 
-function ChatInput(){
+type Props = {
+  username: string;
+}
+
+function ChatInput({ username }: Props){
   const [input, setInput] = useState("");
 
   const addMessage = (e: FormEvent<HTMLFormElement>) => {
@@ -23,7 +27,7 @@ function ChatInput(){
       id,
       message: messageToSend,
       created_at: Date.now(),
-      username: 'Leonid',
+      username: username,
     }
 
     const uploadMessage = async () => {
