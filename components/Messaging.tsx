@@ -4,6 +4,11 @@ import { useState } from 'react';
 import ChatInput from 'components/ChatInput';
 import ChatRoom from 'components/ChatRoom';
 
+type RoomDataProps = {
+  roomName: string;
+  digest: string;
+}
+
 function Messaging(){
   const generate_username = () => {
 
@@ -18,24 +23,11 @@ function Messaging(){
 
   const [username, setUsername] = useState(generate_username());
   const [room, setRoom] = useState<string>("");
-  const [encryptedRoom, setEncryptedRoom] = useState<string>("");
+  const [roomHash, setRoomHash] = useState<string>("");
 
-  const updateRoomData = (roomName: string) => {
+  const updateRoomData = ({ roomName, digest}: RoomDataProps) => {
     setRoom(roomName);
-
-    const digested_message = digestMessage(roomName)
-
-    digested_message.then((digest_hex) => {
-      setEncryptedRoom(digest_hex);
-    })
-  }
-
-  async function digestMessage(message: string) {
-    const msgUint8 = new TextEncoder().encode(message);                           // encode as (utf-8) Uint8Array
-    const hashBuffer = await crypto.subtle.digest('SHA-256', msgUint8);           // hash the message
-    const hashArray = Array.from(new Uint8Array(hashBuffer));                     // convert buffer to byte array
-    const hashHex = hashArray.map((b) => b.toString(16).padStart(2, '0')).join(''); // convert bytes to hex string
-    return hashHex;
+    setRoomHash(digest);
   }
 
   return (
@@ -53,13 +45,13 @@ function Messaging(){
             </div>
             <div className="flex flex-1 justify-end p-5">
               <h1>Room {room}</h1>
-              <h1>Encrypted Room{encryptedRoom}</h1>
-              <Gate setRoom={updateRoomData} />
+              <h1>Encrypted Room{roomHash}</h1>
+              <Gate updateRoomData={updateRoomData} />
             </div>
           </div>
         </div>
       </div>
-      <ChatRoom encryptedRoom={encryptedRoom} />
+      <ChatRoom encryptedRoom={roomHash} />
       <ChatInput username={username} />
     </>
   )

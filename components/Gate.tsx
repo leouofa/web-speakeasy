@@ -1,17 +1,37 @@
 import { FormEvent, useState } from 'react';
 
 type Props = {
-  setRoom: Function;
+  updateRoomData: Function;
 }
 
-function Gate({ setRoom }: Props){
+function Gate({ updateRoomData }: Props){
+
   const [input, setInput] = useState("");
   const enterRoom = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     if (!input) return;
 
-    setRoom(input);
+    const digested_message = digestMessage(input)
+
+    digested_message.then((digest_hex) => {
+      return (
+        setRoom({
+          roomName: input,
+          digest: digest_hex
+        })
+      )
+    })
+
+    // setRoom(input);
+  }
+
+  async function digestMessage(message: string) {
+    const msgUint8 = new TextEncoder().encode(message);                           // encode as (utf-8) Uint8Array
+    const hashBuffer = await crypto.subtle.digest('SHA-256', msgUint8);           // hash the message
+    const hashArray = Array.from(new Uint8Array(hashBuffer));                     // convert buffer to byte array
+    const hashHex = hashArray.map((b) => b.toString(16).padStart(2, '0')).join(''); // convert bytes to hex string
+    return hashHex;
   }
 
   return (
