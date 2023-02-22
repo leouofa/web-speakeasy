@@ -50,8 +50,8 @@ function ChatInput({ username, channel }: Props){
   }
 
   return (
-    <div className="fixed bottom-0 z-50 w-full ">
-      <form onSubmit={addMessage} className="mx-auto max-w-6xl flex px-10 pt-5 pb-10 space-x-2 border-t border-gray-700">
+    <div className="fixed bottom-0 z-50 w-full bg-black">
+      <form onSubmit={addMessage} className="mx-auto max-w-6xl flex px-10 pt-5 pb-10 space-x-2 border-t border-gray-900">
         <input type="text"
                value={input}
                onChange={(e) => setInput(e.target.value)}

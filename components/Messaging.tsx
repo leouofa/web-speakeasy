@@ -1,5 +1,5 @@
 import Gate from 'components/Gate';
-import UserData from '@/components/UserData';
+import UserData from 'components/UserData';
 import { useState } from 'react';
 import ChatInput from 'components/ChatInput';
 import ChatRoom from 'components/ChatRoom';
@@ -49,7 +49,7 @@ function Messaging(){
           </div>
         </div>
       </div>
-      <ChatRoom roomHash={roomHash} />
+      <ChatRoom username={username} roomHash={roomHash} />
       <ChatInput username={username} channel={roomHash} />
     </>
   )
