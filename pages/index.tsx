@@ -4,18 +4,33 @@ import { Product } from 'types';
 import { GetStaticPropsResult } from 'next';
 import { useUser } from 'utils/useUser';
 import Messaging from 'components/Messaging';
+import Sales from 'components/Sales';
 
 interface Props {
   products: Product[];
 }
 
 export default function IndexPage({ products }: Props) {
-  const { user } = useUser();
+  const { subscription, user } = useUser();
 
   return (
-      <>
-        {user ? (<Messaging />) : (<Pricing products={products} />)}
-      </>
+      <div>
+        {(() => {
+          if (user && subscription) {
+            return (
+              <Messaging />
+            )
+          } else if (user && !subscription) {
+            return (
+              <Pricing products={products} />
+            )
+          } else if (!user) {
+            return (
+              <Sales products={products} />
+            )
+          }
+        })()}
+      </div>
     )
 }
 
