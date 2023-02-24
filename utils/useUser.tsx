@@ -58,9 +58,13 @@ export const MyUserContextProvider = (props: Props) => {
 
           if (subscriptionPromise.status === 'fulfilled') {
             setSubscription(subscriptionPromise.value.data);
+
             if(subscriptionPromise.value.data === null) {
               setAssumeSubscribed(false)
+            } else if (subscriptionPromise.value.data.status != 'active') {
+              setAssumeSubscribed(false)
             }
+
           }
 
           setIsloadingData(false);
