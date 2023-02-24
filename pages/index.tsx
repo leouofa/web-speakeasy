@@ -5,22 +5,31 @@ import { GetStaticPropsResult } from 'next';
 import { useUser } from 'utils/useUser';
 import Messaging from 'components/Messaging';
 import Sales from 'components/Sales';
+import { useEffect, useState } from 'react';
 
 interface Props {
   products: Product[];
 }
 
 export default function IndexPage({ products }: Props) {
-  const { subscription, user } = useUser();
+  const { user, assumeSubscribed } = useUser();
+  const [ subscribed, setSubscribed ] = useState<boolean>(true);
+
+  useEffect(()=>{
+    if(!assumeSubscribed){
+      setSubscribed(false)
+    }
+
+  },[assumeSubscribed, setSubscribed])
 
   return (
       <div>
         {(() => {
-          if (user && subscription) {
+          if (user && subscribed) {
             return (
               <Messaging />
             )
-          } else if (user && !subscription) {
+          } else if (user && !subscribed) {
             return (
               <Pricing products={products} />
             )

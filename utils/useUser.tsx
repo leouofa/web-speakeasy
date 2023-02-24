@@ -13,6 +13,7 @@ type UserContextType = {
   userDetails: UserDetails | null;
   isLoading: boolean;
   subscription: Subscription | null;
+  assumeSubscribed: boolean;
 };
 
 export const UserContext = createContext<UserContextType | undefined>(
@@ -34,6 +35,7 @@ export const MyUserContextProvider = (props: Props) => {
   const [isLoadingData, setIsloadingData] = useState(false);
   const [userDetails, setUserDetails] = useState<UserDetails | null>(null);
   const [subscription, setSubscription] = useState<Subscription | null>(null);
+  const [assumeSubscribed, setAssumeSubscribed] = useState(true);
 
   const getUserDetails = () => supabase.from('users').select('*').single();
   const getSubscription = () =>
@@ -54,8 +56,13 @@ export const MyUserContextProvider = (props: Props) => {
           if (userDetailsPromise.status === 'fulfilled')
             setUserDetails(userDetailsPromise.value.data);
 
-          if (subscriptionPromise.status === 'fulfilled')
+          if (subscriptionPromise.status === 'fulfilled') {
             setSubscription(subscriptionPromise.value.data);
+            if(subscriptionPromise.value.data === null) {
+              setAssumeSubscribed(false)
+              console.log('not subscribed')
+            }
+          }
 
           setIsloadingData(false);
         }
@@ -71,7 +78,8 @@ export const MyUserContextProvider = (props: Props) => {
     user,
     userDetails,
     isLoading: isLoadingUser || isLoadingData,
-    subscription
+    subscription,
+    assumeSubscribed
   };
 
   return <UserContext.Provider value={value} {...props} />;
