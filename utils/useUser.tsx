@@ -60,7 +60,6 @@ export const MyUserContextProvider = (props: Props) => {
             setSubscription(subscriptionPromise.value.data);
             if(subscriptionPromise.value.data === null) {
               setAssumeSubscribed(false)
-              console.log('not subscribed')
             }
           }
 
