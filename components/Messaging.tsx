@@ -3,6 +3,7 @@ import UserData from 'components/UserData';
 import { useState } from 'react';
 import ChatInput from 'components/ChatInput';
 import ChatRoom from 'components/ChatRoom';
+import Metamask from 'components/Metamask';
 
 type RoomDataProps = {
   roomName: string;
@@ -42,8 +43,12 @@ function Messaging(){
           <div className="flex justify-between align-center flex-row py-4 md:py-6 relative">
             <div className="flex flex-1 flex-col p-5">
               <UserData username={username} roomHash={roomHash} />
+              <div className="pt-3">
+                <Metamask />
+              </div>
             </div>
             <div className="flex flex-1 justify-end p-5">
+
               <Gate updateRoomData={updateRoomData} />
             </div>
           </div>
