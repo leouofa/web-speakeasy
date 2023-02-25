@@ -9,8 +9,9 @@ import { createBrowserSupabaseClient } from '@supabase/auth-helpers-nextjs';
 import { AppProps } from 'next/app';
 import { MyUserContextProvider } from 'utils/useUser';
 import type { Database } from 'types_db';
+import { DAppProvider } from '@usedapp/core';
 
-import { ThirdwebWeb3Provider } from "@3rdweb/hooks"
+
 
 export default function MyApp({ Component, pageProps }: AppProps) {
   const [supabaseClient] = useState(() =>
@@ -20,18 +21,9 @@ export default function MyApp({ Component, pageProps }: AppProps) {
     document.body.classList?.remove('loading');
   }, []);
 
-  const supportedChainIds = [80001, 4];
-
-  const connectors = {
-    injected: {},
-  };
-
   return (
     <div className="bg-black">
-      <ThirdwebWeb3Provider
-        supportedChainIds={supportedChainIds}
-        connectors={connectors}
-      >
+      <DAppProvider config={{}}>
         <SessionContextProvider supabaseClient={supabaseClient}>
           <MyUserContextProvider>
             <Layout>
@@ -39,7 +31,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
             </Layout>
           </MyUserContextProvider>
         </SessionContextProvider>
-      </ThirdwebWeb3Provider>
+      </DAppProvider>
     </div>
   );
 }
