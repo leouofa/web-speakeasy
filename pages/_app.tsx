@@ -9,6 +9,9 @@ import { createBrowserSupabaseClient } from '@supabase/auth-helpers-nextjs';
 import { AppProps } from 'next/app';
 import { MyUserContextProvider } from 'utils/useUser';
 import type { Database } from 'types_db';
+import { DAppProvider } from '@usedapp/core';
+
+
 
 export default function MyApp({ Component, pageProps }: AppProps) {
   const [supabaseClient] = useState(() =>
@@ -20,13 +23,15 @@ export default function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <div className="bg-black">
-      <SessionContextProvider supabaseClient={supabaseClient}>
-        <MyUserContextProvider>
-          <Layout>
-            <Component {...pageProps} />
-          </Layout>
-        </MyUserContextProvider>
-      </SessionContextProvider>
+      <DAppProvider config={{}}>
+        <SessionContextProvider supabaseClient={supabaseClient}>
+          <MyUserContextProvider>
+            <Layout>
+              <Component {...pageProps} />
+            </Layout>
+          </MyUserContextProvider>
+        </SessionContextProvider>
+      </DAppProvider>
     </div>
   );
 }
