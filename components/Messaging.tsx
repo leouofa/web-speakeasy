@@ -3,7 +3,7 @@ import UserData from 'components/UserData';
 import { useState } from 'react';
 import ChatInput from 'components/ChatInput';
 import ChatRoom from 'components/ChatRoom';
-import Metamask from 'components/Metamask';
+import Wallet from '@/components/Wallet';
 
 type RoomDataProps = {
   roomName: string;
@@ -44,7 +44,7 @@ function Messaging(){
             <div className="flex flex-1 flex-col p-5">
               <UserData username={username} roomHash={roomHash} />
               <div className="pt-3">
-                <Metamask />
+                <Wallet />
               </div>
             </div>
             <div className="flex flex-1 justify-end p-5">

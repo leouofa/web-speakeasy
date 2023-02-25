@@ -1,6 +1,6 @@
 import { useEthers, useEtherBalance } from '@usedapp/core'
 
-function Metamask(){
+function Wallet(){
   const { activateBrowserWallet, deactivate, account } = useEthers()
 
   return(
@@ -19,4 +19,4 @@ function Metamask(){
     )
 }
 
-export default Metamask
+export default Wallet
