@@ -7,7 +7,6 @@ type Props = {
 }
 
 function MessageComponent({message, username}: Props){
-  console.log(message.username, username)
   const isUser = message.username === username;
 
   const hasPublicAddress = () => {
@@ -20,14 +19,14 @@ function MessageComponent({message, username}: Props){
     <div className={`flex w-fit ${!isUser && "ml-auto"}`}>
       <div>
         <p className={`text-[0.65rem] px-[2px] pb-[2px] 
-                    ${!isUser ? "text-blue-400 text-right" : "text-red-400 text-left"}`}>
-          {message.username}
-          {hasPublicAddress() ? <span className="block">{message.public_address}</span> : ''}
+                    ${(isUser ? 'text-green-400 text-left' : 'text-blue-400 text-right')}`}>
+          <span>{message.username}</span>
+          <span className="block font-bold">{message.public_address}</span>
         </p>
 
         <div className="flex items-end">
-          <div className={`px-3 py-2 rounded-lg w-fit text-white bg-red-400 
-                        ${!isUser ? "bg-blue-400 ml-auto order-2" : "bg-red-400" }`}>
+          <div className={`px-3 py-2 rounded-lg w-fit text-white
+                        ${(isUser ? 'bg-green-700' : 'bg-blue-700 ml-auto order-2')}`}>
             <p>{message.message}</p>
           </div>
           <p className={`text-[0.65rem] italic px-2 text-gray-300 ${!isUser && 'text-right'}`}>
