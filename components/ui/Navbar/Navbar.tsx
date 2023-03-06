@@ -26,13 +26,6 @@ const Navbar = () => {
                 </span>
               </a>
             </Link>
-            <nav className="space-x-2 ml-6 hidden lg:block">
-              {user ? ('') : (
-                <Link href="/pricing">
-                  <a className={s.link}>Pricing</a>
-                </Link>
-              )}
-            </nav>
           </div>
 
           <div className="flex flex-1 justify-end space-x-8">
