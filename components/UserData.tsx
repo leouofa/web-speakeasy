@@ -16,7 +16,7 @@ function UserData({ username, roomHash, handleExit }: Props){
   }
 
   return (
-    <div className="flex align-middle">
+    <div className="flex align-middle flex-col md:flex-row">
       <div>
         <h1 className="text">Username: <span className="font-bold">{username}</span></h1>
         <h1 className="text">Room ID: <span className="font-bold">{roomHash}</span></h1>
