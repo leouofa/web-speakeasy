@@ -28,7 +28,7 @@ function Messaging(){
   const [passphrase, setPassphrase] = useState<string>("");
   const [roomHash, setRoomHash] = useState<string>("");
 
-  const { account } = useEthers()
+  const { activateBrowserWallet, account } = useEthers()
 
   const updateRoomData = ({ roomName, digest}: RoomDataProps) => {
     setPassphrase(roomName);
@@ -40,12 +40,21 @@ function Messaging(){
       {(() => {
         if(!account) {
           return(
-            <>
-              <Wallet />
-            </>
+            <div className="mx-auto max-w-xl flex h-[calc(100vh-65px)] justify-center items-center">
+              <div className="w-full bg-gray-900 rounded-2xl border-gray-700 border-2 p-20 lg:mt-[-30%] flex flex-col items-center">
+                <h1 className="text-gray-100 text-center mb-6 text-2xl font-extralight">Wallet Not Connected</h1>
+                <button
+                  onClick={activateBrowserWallet}
+                  className="text-orange-100 bg-orange-600 hover:bg-orange-700 border border-orange-200 focus:ring-4 focus:outline-none focus:ring-orange-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:focus:ring-orange-600 dark:bg-orange-800 dark:border-orange-700 dark:text-white dark:hover:bg-orange-700 font-bold mr-2 mb-2"
+                > Connect With Metamask</button>
+                {/*<Wallet />*/}
+              </div>
+            </div>
           )
         }
       })()}
+
+      <Wallet />
 
       {(() => {
         if(account && passphrase.length === 0) {
