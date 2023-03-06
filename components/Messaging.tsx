@@ -3,7 +3,6 @@ import UserData from 'components/UserData';
 import { useState } from 'react';
 import ChatInput from 'components/ChatInput';
 import ChatRoom from 'components/ChatRoom';
-import Wallet from '@/components/Wallet';
 
 import { useEthers, useEtherBalance } from '@usedapp/core'
 
@@ -51,15 +50,18 @@ function Messaging(){
                 <h1 className="text-gray-100 text-center mb-6 text-2xl font-extralight">Wallet Not Connected</h1>
                 <button
                   onClick={activateBrowserWallet}
-                  className="text-orange-100 bg-orange-600 hover:bg-orange-700 border border-orange-200 focus:ring-4 focus:outline-none focus:ring-orange-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:focus:ring-orange-600 dark:bg-orange-800 dark:border-orange-700 dark:text-white dark:hover:bg-orange-700 font-bold mr-2 mb-2"
-                > Connect With Metamask</button>
+                  className="text-white bg-gray-600 hover:bg-gray-700 border-gray-400 border-2
+              focus:ring-4 focus:outline-none focus:ring-gray-800
+              font-medium rounded-lg text-sm px-10 py-2.5
+              text-center disabled:opacity-70 disabled:cursor-not-allowed"
+                >
+                  Connect with Metamask
+                </button>
               </div>
             </div>
           )
         }
       })()}
-
-      <Wallet />
 
       {(() => {
         if(account && passphrase.length === 0) {
@@ -77,9 +79,8 @@ function Messaging(){
         if(roomHash.length > 0) {
           return(
             <>
-
-              <div className="mx-auto max-w-6xl">
-                <div className="bg-gradient-to-bl bg-gray-900 mx-6 mb-10 p-5">
+              <div className="mx-auto max-w-6xl mt-5">
+                <div className="bg-gradient-to-bl bg-gray-900 mx-6 mb-10 p-5 rounded-2xl border-2 border-gray-700">
                   <div className="flex flex-col align-center">
                     <UserData username={username} roomHash={roomHash} handleExit={handleExit} />
                   </div>

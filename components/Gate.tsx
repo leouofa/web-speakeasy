@@ -46,15 +46,16 @@ function Gate({ updateRoomData }: Props){
              border-gray-300
              text-gray-900
              text-sm text-black
-             focus:ring-2 focus:ring-blue-600
+             focus:ring-2 focus:ring-gray-600
              rounded-lg
              block w-full p-2.5 mb-3"
              placeholder="Enter The Passphrase ..." />
       <div className="flex justify-end">
-        <button className="text-white w-full bg-gray-600 hover:bg-gray-700 border-gray-400 border-2
+        <button
+          className="text-white w-full bg-gray-600 hover:bg-gray-700 border-gray-400 border-2
               focus:ring-4 focus:outline-none focus:ring-gray-800
               font-medium rounded-lg text-sm px-10 py-2.5
-              text-center disabled:opacity-50 disabled:cursor-not-allowed"
+              text-center disabled:opacity-70 disabled:cursor-not-allowed"
                 disabled={!input}
                 type="submit">
           Enter The Speakeasy
