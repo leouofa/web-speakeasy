@@ -62,12 +62,14 @@ function ChatInput({ username, channel, sharePublicAddress }: Props){
                onChange={(e) => setInput(e.target.value)}
                placeholder="Enter a message ..."
                className="flex-1 rounded border border-gray-300 text-black focus:outline-none focus:ring-2
-                   focus:ring-blue-600 focus:border-transparent px-5 py-3
+                   focus:ring-gray-400 focus:border-transparent px-5 py-3
                    disabled:opacity-50 disabled:cursor-not-allowed"
         />
         <button type="submit"
                 disabled={!input}
-                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded disabled:opacity-50
+                className="bg-gray-600 hover:bg-gray-700 text-white font-bold
+                border-gray-400 border-2
+                py-2 px-4 rounded disabled:opacity-50
                 disabled:cursor-not-allowed">
           Send
         </button>
