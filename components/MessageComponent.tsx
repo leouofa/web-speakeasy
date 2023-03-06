@@ -10,12 +10,19 @@ function MessageComponent({message, username}: Props){
   console.log(message.username, username)
   const isUser = message.username === username;
 
+  const hasPublicAddress = () => {
+    if(message.public_address.length > 0) return true
+
+    return false
+  }
+
   return (
     <div className={`flex w-fit ${!isUser && "ml-auto"}`}>
       <div>
         <p className={`text-[0.65rem] px-[2px] pb-[2px] 
                     ${!isUser ? "text-blue-400 text-right" : "text-red-400 text-left"}`}>
           {message.username}
+          {hasPublicAddress() ? <span className="block">{message.public_address}</span> : ''}
         </p>
 
         <div className="flex items-end">
