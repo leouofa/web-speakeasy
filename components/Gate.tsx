@@ -35,7 +35,7 @@ function Gate({ updateRoomData }: Props){
   }
 
   return (
-    <form onSubmit={enterRoom} className="w-full">
+    <form onSubmit={enterRoom}>
       <input type="text"
              minLength={5}
              value={input}
@@ -48,14 +48,14 @@ function Gate({ updateRoomData }: Props){
              text-sm text-black
              focus:ring-2 focus:ring-blue-600
              rounded-lg
-             block w-full p-2.5 mb-2"
+             block w-full p-2.5 mb-3"
              placeholder="Enter The Passphrase ..." />
       <div className="flex justify-end">
-        <button className="text-white w-1/2 bg-blue-700 hover:bg-blue-800
-              focus:ring-4 focus:outline-none focus:ring-blue-300
+        <button className="text-white w-full bg-gray-700 hover:bg-gray-800
+              focus:ring-4 focus:outline-none focus:ring-gray-300
               font-medium rounded-lg text-sm px-5 py-2.5
-              text-center dark:bg-blue-600 dark:hover:bg-blue-700
-              dark:focus:ring-blue-800
+              text-center dark:bg-gray-600 dark:hover:bg-gray-700
+              dark:focus:ring-gray-800
               disabled:opacity-50 disabled:cursor-not-allowed"
                 disabled={!input}
                 type="submit">
