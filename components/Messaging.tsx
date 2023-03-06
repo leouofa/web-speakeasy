@@ -53,14 +53,13 @@ function Messaging(){
                   onClick={activateBrowserWallet}
                   className="text-orange-100 bg-orange-600 hover:bg-orange-700 border border-orange-200 focus:ring-4 focus:outline-none focus:ring-orange-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:focus:ring-orange-600 dark:bg-orange-800 dark:border-orange-700 dark:text-white dark:hover:bg-orange-700 font-bold mr-2 mb-2"
                 > Connect With Metamask</button>
-                {/*<Wallet />*/}
               </div>
             </div>
           )
         }
       })()}
 
-      {/*<Wallet />*/}
+      <Wallet />
 
       {(() => {
         if(account && passphrase.length === 0) {

@@ -1,3 +1,5 @@
+import { useEthers, useEtherBalance } from '@usedapp/core'
+
 import Link from 'next/link';
 import { useState, ReactNode } from 'react';
 
@@ -8,6 +10,7 @@ import { postData } from 'utils/helpers';
 
 import { User } from '@supabase/supabase-js';
 import { withPageAuth } from '@supabase/auth-helpers-nextjs';
+import Wallet from '@/components/Wallet';
 
 interface Props {
   title: string;
@@ -57,6 +60,8 @@ export default function Account({ user }: { user: User }) {
       currency: subscription?.prices?.currency,
       minimumFractionDigits: 0
     }).format((subscription?.prices?.unit_amount || 0) / 100);
+
+  const { activateBrowserWallet, account } = useEthers()
 
   return (
     <section className="bg-black mb-32">
@@ -109,30 +114,28 @@ export default function Account({ user }: { user: User }) {
           </div>
         </Card>
         <Card
-          title="Your Name"
-          description="Please enter your full name, or a display name you are comfortable with."
-          footer={<p>Please use 64 characters at maximum.</p>}
-        >
-          <div className="text-xl mt-8 mb-4 font-semibold">
-            {userDetails ? (
-              `${
-                userDetails.full_name ??
-                `${userDetails.first_name} ${userDetails.last_name}`
-              }`
-            ) : (
-              <div className="h-8 mb-6">
-                <LoadingDots />
-              </div>
-            )}
-          </div>
-        </Card>
-        <Card
           title="Your Email"
-          description="Please enter the email address you want to use to login."
-          footer={<p>We will email you to verify the change.</p>}
+          description="This is the email address tied to your account."
+          footer={<p>The email address can not be changed.</p>}
         >
           <p className="text-xl mt-8 mb-4 font-semibold">
             {user ? user.email : undefined}
+          </p>
+        </Card>
+        <Card
+          title="Ethereum Address"
+          description="This is the public address tied to your account."
+          footer={
+            <div className="flex items-start justify-between flex-col sm:flex-row sm:items-center">
+              <p className="pb-4 sm:pb-0">
+                Your wallet is connected via Metamask
+              </p>
+              <Wallet></Wallet>
+            </div>
+          }
+        >
+          <p className="text-xl mt-8 mb-4 font-semibold">
+            {account ? account : undefined}
           </p>
         </Card>
       </div>
