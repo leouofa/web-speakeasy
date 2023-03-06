@@ -26,6 +26,7 @@ function Messaging(){
   const [username, setUsername] = useState(generate_username());
   const [passphrase, setPassphrase] = useState<string>("");
   const [roomHash, setRoomHash] = useState<string>("");
+  const [sharePublicAddress, setSharePublicAddress] = useState<boolean>(false)
 
   const { activateBrowserWallet, account } = useEthers()
 
@@ -38,6 +39,10 @@ function Messaging(){
     setUsername(generate_username())
     setPassphrase('')
     setRoomHash('')
+  }
+
+  const handlePublicToggle = () => {
+    setSharePublicAddress(!sharePublicAddress)
   }
 
   return (
@@ -82,7 +87,7 @@ function Messaging(){
               <div className="mx-auto max-w-6xl mt-5">
                 <div className="bg-gradient-to-bl bg-gray-900 mx-6 mb-10 p-5 rounded-2xl border-2 border-gray-700">
                   <div className="flex flex-col align-center">
-                    <UserData username={username} roomHash={roomHash} handleExit={handleExit} />
+                    <UserData username={username} roomHash={roomHash} sharePublicAddress={sharePublicAddress} handleExit={handleExit} handlePublicToggle={handlePublicToggle} />
                   </div>
                 </div>
               </div>
