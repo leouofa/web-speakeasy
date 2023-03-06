@@ -40,8 +40,8 @@ function Messaging(){
       {(() => {
         if(!account) {
           return(
-            <div className="mx-auto max-w-xl flex h-[calc(100vh-65px)] justify-center items-center">
-              <div className="w-full bg-gray-900 rounded-2xl border-gray-700 border-2 p-20 lg:mt-[-30%] flex flex-col items-center">
+            <div className="mx-5 sm:mx-auto max-w-xl flex h-[80vh] sm:h-[calc(100vh-65px)] justify-center items-center">
+              <div className="w-full bg-gray-900 rounded-2xl border-gray-700 border-2 p-20 sm:mt-[-30%] flex flex-col items-center">
                 <h1 className="text-gray-100 text-center mb-6 text-2xl font-extralight">Wallet Not Connected</h1>
                 <button
                   onClick={activateBrowserWallet}
@@ -54,13 +54,13 @@ function Messaging(){
         }
       })()}
 
-      <Wallet />
+      {/*<Wallet />*/}
 
       {(() => {
         if(account && passphrase.length === 0) {
           return(
-            <div className="mx-auto max-w-xl flex h-[calc(100vh-65px)] justify-center items-center">
-              <div className="w-full bg-gray-900 rounded-2xl border-gray-700 border-2 p-20 lg:mt-[-30%]">
+            <div className="mx-5 sm:mx-auto max-w-xl flex h-[80vh] md:h-[calc(100vh-65px)] justify-center items-center">
+              <div className="w-full bg-gray-900 rounded-2xl border-gray-700 border-2 py-10 px-5 md:px-20 md:py-20 sm:mt-[-30%]">
                 <Gate updateRoomData={updateRoomData} />
               </div>
             </div>
