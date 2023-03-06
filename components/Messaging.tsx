@@ -93,7 +93,7 @@ function Messaging(){
               </div>
 
               <ChatRoom username={username} roomHash={roomHash} />
-              <ChatInput username={username} channel={roomHash} />
+              <ChatInput username={username} channel={roomHash} sharePublicAddress={sharePublicAddress} />
             </>
           )
         }

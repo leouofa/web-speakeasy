@@ -3,14 +3,17 @@
 import {FormEvent, useState} from "react";
 import {v4 as uuid} from 'uuid';
 import {Message} from "../typings";
+import { useEthers } from '@usedapp/core';
 
 type Props = {
   username: string;
   channel: string;
+  sharePublicAddress: boolean;
 }
 
-function ChatInput({ username, channel }: Props){
+function ChatInput({ username, channel, sharePublicAddress }: Props){
   const [input, setInput] = useState("");
+  const { account } = useEthers()
 
   const addMessage = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -23,6 +26,7 @@ function ChatInput({ username, channel }: Props){
 
 
     const id = uuid();
+    const public_address = (sharePublicAddress ? account : '');
 
     const message: Message = {
       id,
@@ -30,6 +34,7 @@ function ChatInput({ username, channel }: Props){
       created_at: Date.now(),
       username: username,
       channel: channel,
+      public_address: public_address!
     }
 
     const uploadMessage = async () => {
