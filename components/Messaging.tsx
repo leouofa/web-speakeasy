@@ -55,7 +55,7 @@ function Messaging(){
               font-medium rounded-lg text-sm px-10 py-2.5
               text-center disabled:opacity-70 disabled:cursor-not-allowed"
                 >
-                  Connect With Metamask
+                  Connect with Metamask
                 </button>
               </div>
             </div>
