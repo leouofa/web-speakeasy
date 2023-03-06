@@ -35,6 +35,12 @@ function Messaging(){
     setRoomHash(digest.substring(0,20));
   }
 
+  const handleExit = () => {
+    setUsername(generate_username())
+    setPassphrase('')
+    setRoomHash('')
+  }
+
   return (
     <>
       {(() => {
@@ -76,7 +82,7 @@ function Messaging(){
               <div className="mx-auto max-w-6xl">
                 <div className="bg-gradient-to-bl bg-gray-900 mx-6 mb-10 p-5">
                   <div className="flex flex-col align-center">
-                    <UserData username={username} roomHash={roomHash} />
+                    <UserData username={username} roomHash={roomHash} handleExit={handleExit} />
                   </div>
                 </div>
               </div>
