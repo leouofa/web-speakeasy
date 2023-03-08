@@ -10,16 +10,25 @@ type Props = {
 
 function ChatRoom({ username, roomHash }: Props){
   const [messages, setMessages] = useState<any[]>([]);
-  const [bottomOfChat, setBottomOfChat] = useState<boolean>(false)
+  const [bottomOfChat, _setBottomOfChat] = useState<boolean>(false)
+  const bottomOfChatRef = useRef<any>(true)
   const messageEl = useRef<HTMLDivElement>(null)
+
+  const setBottomOfChat = (val:boolean) => {
+    bottomOfChatRef.current = val
+    _setBottomOfChat(val);
+  }
+
 
   useEffect(() =>{
     if (!roomHash) return;
 
     if (messageEl) {
       messageEl!.current!.addEventListener('DOMNodeInserted', event => {
-        const { currentTarget: target } = event;
-        (target as HTMLInputElement).scroll({ top: (target as HTMLInputElement).scrollHeight, behavior: 'smooth' });
+        if(bottomOfChatRef.current){
+          const { currentTarget: target } = event;
+          (target as HTMLInputElement).scroll({ top: (target as HTMLInputElement).scrollHeight, behavior: 'smooth' });
+        }
       });
     }
   }, [])
@@ -41,9 +50,19 @@ function ChatRoom({ username, roomHash }: Props){
     }
   }, [messages, roomHash, clientPusher])
 
+  const handleScroll = (e:any) => {
+    const bottom = e.target.scrollHeight - e.target.scrollTop === e.target.clientHeight;
+    if (bottom) {
+      setBottomOfChat(true)
+    } else {
+      setBottomOfChat(false)
+    }
+  }
+
   return (
     <div className="overflow-hidden ">
       <div className="space-y-5 px-5 pt-8 pb-32 max-w-2xl xl:max-w-4xl mx-auto overflow-y-auto h-[calc(100vh-10rem-2.5rem-2.5rem-1.25rem)]"
+           onScroll={handleScroll}
            ref={messageEl}>
         {(messages).map(message => (
           <MessageComponent message={message} username={username} key={message.id} />
