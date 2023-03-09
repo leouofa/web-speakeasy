@@ -71,9 +71,11 @@ function Messaging(){
       {(() => {
         if(account && passphrase.length === 0) {
           return(
-            <div className="mx-5 sm:mx-auto max-w-xl flex h-[80vh] md:h-[calc(100vh-65px)] justify-center items-center">
-              <div className="w-full bg-gray-900 rounded-2xl border-gray-700 border-2 py-10 px-5 md:px-20 md:py-20 sm:mt-[-30%]">
-                <Gate updateRoomData={updateRoomData} />
+            <div className="bg-black">
+              <div className="mx-5 sm:mx-auto max-w-xl flex h-[80vh] md:h-[calc(100vh-65px)] justify-center items-center">
+                <div className="w-full bg-gradient-to-b from-zinc-400 via-zinc-400 to-zinc-600 rounded-2xl border-zinc-900 border-8 py-20 px-5 md:px-20 md:py-40 sm:mt-[-30%]">
+                  <Gate updateRoomData={updateRoomData} />
+                </div>
               </div>
             </div>
           )
@@ -85,7 +87,7 @@ function Messaging(){
           return(
             <>
               <div className="mx-auto max-w-6xl mt-5">
-                <div className="bg-gradient-to-bl bg-gray-900 mx-6 mb-10 p-5 rounded-2xl border-2 border-gray-700">
+                <div className="bg-gradient-to-bl bg-from-gray-900 mx-6 mb-10 p-5 rounded-2xl border-2 border-gray-700">
                   <div className="flex flex-col align-center">
                     <UserData username={username} roomHash={roomHash} sharePublicAddress={sharePublicAddress} handleExit={handleExit} handlePublicToggle={handlePublicToggle} />
                   </div>

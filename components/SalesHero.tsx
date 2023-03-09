@@ -18,7 +18,7 @@ export default function SalesHero(){
          <h1
            className="bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 bg-clip-text text-3xl font-extrabold text-transparent sm:text-6xl mb-4 pb-2 drop-shadow-2xl"
          >
-           Beat online surveillance with a our decentralized chat app.
+           Sidestep surveillance with a our decentralized chat app.
          </h1>
          {/*<h1*/}
          {/*  className="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-5xl text-white">Beat online surveillance with decentralized messaging platform.</h1>*/}
