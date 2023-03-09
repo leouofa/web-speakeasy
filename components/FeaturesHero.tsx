@@ -1,10 +1,16 @@
-import { CircleStackIcon, IdentificationIcon, LockClosedIcon } from '@heroicons/react/20/solid';
-import { Stripe } from 'stripe';
+import {
+  BuildingStorefrontIcon,
+  CircleStackIcon,
+  CodeBracketSquareIcon,
+  IdentificationIcon,
+  LockClosedIcon,
+  UserCircleIcon
+} from '@heroicons/react/24/outline';
 
 export default function FeaturesHero(){
   const features = [
     {
-      name: 'Identity Free Chat',
+      name: 'Contact Free Chat',
       description: 'Enter a passcode and start chatting. The usernames are randomly generated for extra security.',
       icon: IdentificationIcon
     },
@@ -19,17 +25,27 @@ export default function FeaturesHero(){
       icon: CircleStackIcon
     },
     {
-      name: 'Decentralized',
+      name: 'Decentralized Identity',
       description: 'The chats are not stored anywhere, but rather pushed in real-time to all connected clients.',
-      icon: CircleStackIcon
+      icon: UserCircleIcon
+    },
+    {
+      name: 'Open-Source',
+      description: 'Tiny attack vector combined with fully auditable code breeds trust.',
+      icon: CodeBracketSquareIcon
+    },
+    {
+      name: 'Business in a Box',
+      description: 'The chats are not stored anywhere, but rather pushed in real-time to all connected clients.',
+      icon: BuildingStorefrontIcon
     },
   ]
 
  return(
-   <section className="bg-zinc-800">
+   <section className="bg-gradient-to-b from-zinc-900 to-zinc-800">
      <div className="py-8 px-4 mx-auto max-w-screen-xl sm:py-32 lg:px-6">
        <div className="max-w-screen-md mb-8 lg:mb-20 mx-auto">
-         <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-gray-50 text-center">
+         <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-gray-50 text-center drop-shadow-2xl">
            Old school meets new school.
          </h2>
          <p className="sm:text-xl text-gray-400 text-center">Share a passcode code amongst your friends offline and start a secret conversation

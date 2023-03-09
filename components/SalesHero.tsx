@@ -12,11 +12,11 @@ export default function SalesHero(){
   }
 
  return(
-   <section className="bg-zinc-900">
-     <div className="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-40 lg:grid-cols-12">
+   <section className="bg-gradient-to-b from-zinc-800 to-zinc-900">
+     <div className="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-52 lg:grid-cols-12">
        <div className="mr-auto place-self-center lg:col-span-7">
          <h1
-           className="bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 bg-clip-text text-3xl font-extrabold text-transparent sm:text-6xl mb-4 pb-2"
+           className="bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 bg-clip-text text-3xl font-extrabold text-transparent sm:text-6xl mb-4 pb-2 drop-shadow-2xl"
          >
            Beat online surveillance with a our decentralized chat app.
          </h1>
@@ -28,7 +28,10 @@ export default function SalesHero(){
          </p>
          <a href="#subscribe"
             onClick={scrollToSubscribe}
-            className="inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-900">
+            className="inline-flex items-center justify-center px-5 py-3 mr-3 text-base
+            font-medium text-center text-white rounded-lg
+            drop-shadow-2xl
+            bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-900">
            Subscribe Now
            <svg className="w-5 h-5 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20"
                 xmlns="http://www.w3.org/2000/svg">
