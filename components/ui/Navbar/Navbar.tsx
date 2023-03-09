@@ -25,14 +25,7 @@ const Navbar = () => {
       url: '/pricing',
       target: ''
     },
-    {
-      name: 'Documentation',
-      url: 'https://docs.storypro.io',
-      target: '_blank'
-    },
   ]
-
-  const lightTheme = false
 
   const toggleMenu = () => {
     if (isOpen) {
@@ -51,7 +44,7 @@ const Navbar = () => {
           Skip to content
         </a>
         <div className="mx-auto max-w-7xl px-6">
-          <div className="flex justify-between align-center items-center flex-row py-4 md:py-4 h-15 relative drop-shadow-2xl">
+          <div className="flex justify-between align-center items-center flex-row py-4 md:py-4 h-16 relative drop-shadow-2xl">
             <div className="flex flex-1 items-center">
               <Link href="/">
                 <a className={s.logo} aria-label="Logo">
@@ -66,12 +59,12 @@ const Navbar = () => {
               {user ? (
                 <>
                   <Link href="/account">
-                    <a className="inline-flex items-center leading-6 font-medium transition
+                    <a className="hidden md:block :inline-flex items-center leading-6 font-medium transition
                     ease-in-out px-4 py-2 rounded-xl underline">
                       Account</a>
                   </Link>
                   <span
-                    className="inline-flex items-center leading-6 font-medium transition
+                    className="hidden md:block inline-flex items-center leading-6 font-medium transition
                       ease-in-out border-2 border-gray-300 px-4 py-2 rounded-xl"
                     onClick={async () => {
                       await supabaseClient.auth.signOut();
@@ -84,7 +77,7 @@ const Navbar = () => {
                           onClick={toggleMenu}
                           className={`inline-flex items-center p-2 ml-1 text-sm 
                                   rounded-lg lg:hidden 
-                                  text-gray-400 hover:bg-gray-700 focus:ring-gray-600
+                                  text-gray-500 hover:bg-zinc-900 focus:ring-zinc-800
                                   focus:outline-none focus:ring-1`}
                           aria-controls="mobile-menu" aria-expanded="false">
                     <span className="sr-only">Open main menu</span>
@@ -113,24 +106,23 @@ const Navbar = () => {
 
         </div>
       </nav>
-      <div className="fixed top-[5em] hidden" ref={menuRef} id="mobile-menu">
-        <div className="justify-between items-center w-full lg:flex lg:w-auto lg:order-1">
-          <ul className="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
+      <div className="fixed top-[3rem] hidden w-full" ref={menuRef} id="mobile-menu">
+        <div className="px-4 justify-between items-center w-full lg:flex lg:w-auto lg:order-1">
+          <ul className="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-w0">
             {menuItems.map( (item, index) => (
-              <li key={item.name} className="bg-zinc-500">
+              <li onClick={toggleMenu} key={item.name} className="">
                 <Link href={item.url} target={item.target}
-                      className={`block py-2 pr-4 pl-3 
+
+                ><a className="block py-2 pr-4 pl-3
                                               bg-zinc-500
-                                              text-gray-400
-                                              border-gray-700
-                                              hover:bg-gray-700
+                                              text-gray-300
+                                              border-zinc-700
+                                              hover:bg-zinc-700
                                               lg:hover:text-white
-                                              ${(index+1) === menuItems.length ? '' : 'border-b'}
-                                              lg:hover:bg-transparent 
-                                              lg:border-0 
-                                              lg:p-0 
-                                              `}
-                >{item.name}</Link>
+                                              lg:hover:bg-transparent
+                                              lg:border-0
+                                              lg:p-0
+                                              ">{item.name}</a></Link>
               </li>
             ))}
           </ul>

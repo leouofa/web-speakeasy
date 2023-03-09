@@ -73,7 +73,7 @@ function Messaging(){
           return(
             <div className="bg-black">
               <div className="mx-5 sm:mx-auto max-w-xl flex h-[80vh] md:h-[calc(100vh-65px)] justify-center items-center">
-                <div className="w-full bg-gradient-to-b from-zinc-400 via-zinc-400 to-zinc-600 rounded-2xl border-zinc-900 border-8 py-20 px-5 md:px-20 md:py-40 sm:mt-[-30%]">
+                <div className="mt-[-20%] w-full bg-gradient-to-b from-zinc-400 via-zinc-400 to-zinc-600 rounded-2xl border-zinc-900 border-8 py-20 px-5 md:px-20 md:py-40 sm:mt-[-5%]">
                   <Gate updateRoomData={updateRoomData} />
                 </div>
               </div>
