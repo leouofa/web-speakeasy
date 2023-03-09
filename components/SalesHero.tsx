@@ -16,7 +16,12 @@ export default function SalesHero(){
      <div className="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
        <div className="mr-auto place-self-center lg:col-span-7">
          <h1
-           className="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-5xl text-white">Beat online surveillance with decentralized messaging platform.</h1>
+           className="bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 bg-clip-text text-3xl font-extrabold text-transparent sm:text-5xl mb-4"
+         >
+           Defeat surveillance with a decentralized messaging platform.
+         </h1>
+         {/*<h1*/}
+         {/*  className="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-5xl text-white">Beat online surveillance with decentralized messaging platform.</h1>*/}
          <p className="max-w-2xl mb-6 font-light lg:mb-8 md:text-lg lg:text-xl text-gray-400">
            Open source, MetaMask powered, business in a box that anyone can run and create a safe space for conversation inside their community.
 
