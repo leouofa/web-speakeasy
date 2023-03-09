@@ -12,9 +12,12 @@ export default function Footer() {
         { user ? (
           <></>
         ) : (
-          <footer className="mx-auto max-w-[1920px] px-6 bg-zinc-900">
-            <div className="py-6 flex flex-col md:flex-row justify-between items-center space-y-4 bg-zinc-900">
-              <div>&copy; 2023 <span className="text-white font-bold">WEB<span className="text-green-500">SPEAKEASY</span><span className="font-extralight">*</span></span>
+          <footer className="mx-auto max-w-7xl px-6 bg-black">
+            <div className="py-6 flex flex-col md:flex-row justify-between items-center space-y-4 font-extralight">
+              <div>&copy; 2023 &nbsp;
+                <span className="font-white">WEB
+                  <span className=""> | SPEAKEASY</span>
+                </span>
               </div>
               <div className="flex items-center">
                 <a
