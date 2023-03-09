@@ -12,7 +12,7 @@ const Navbar = () => {
   const { user } = useUser();
 
   const [isOpen, setIsOpen] = useState(false);
-  const menuRef = useRef(null);
+  const menuRef: any = useRef<HTMLDivElement>(null);
 
   const menuItems = [
     {
