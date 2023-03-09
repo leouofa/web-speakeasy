@@ -15,14 +15,13 @@ const Navbar = () => {
       <a href="#skip" className="sr-only focus:not-sr-only">
         Skip to content
       </a>
-      <div className="mx-auto max-w-6xl px-6">
-        <div className="flex justify-between align-center flex-row py-4 md:py-6 relative">
+      <div className="mx-auto max-w-7xl px-6">
+        <div className="flex justify-between align-center items-center flex-row py-4 md:py-4 h-15 relative drop-shadow-2xl">
           <div className="flex flex-1 items-center">
             <Link href="/">
               <a className={s.logo} aria-label="Logo">
-                <span className="text-white font-bold">WEB
-                  <span className="text-green-500">SPEAKEASY</span>
-                  <span className="font-extralight">*</span>
+                <span className="bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 bg-clip-text font-bold text-transparent font-extrabold">WEB
+                  <span className=""> | SPEAKEASY</span>
                 </span>
               </a>
             </Link>

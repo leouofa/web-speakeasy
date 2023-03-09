@@ -1,5 +1,7 @@
 import { ProductWithPrice } from '../types';
 import Pricing from '@/components/Pricing';
+import SalesHero from '@/components/SalesHero';
+import FeaturesHero from '@/components/FeaturesHero';
 
 interface Props {
   products: ProductWithPrice[];
@@ -8,7 +10,9 @@ interface Props {
 function Sales({ products }: Props){
   return(
     <div>
-      <>Sales Page</>
+      <SalesHero></SalesHero>
+      <FeaturesHero></FeaturesHero>
+      <a id="subscribe"></a>
       <Pricing products={products} />
     </div>
   )
