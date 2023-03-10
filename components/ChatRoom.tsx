@@ -65,7 +65,7 @@ function ChatRoom({ username, roomHash }: Props){
 
   return (
     <div className="overflow-hidden ">
-      <div className="space-y-5 px-5 pt-8 pb-32 max-w-2xl xl:max-w-4xl mx-auto overflow-y-auto h-[calc(100vh-10rem-2.5rem-2.5rem-1.25rem)]"
+      <div className="space-y-5 px-5 pt-8 pb-32 max-w-2xl xl:max-w-4xl mx-auto overflow-y-auto h-[calc(100vh-23rem-1.25rem)]"
            onScroll={handleScroll}
            ref={messageEl}>
         {(messages).map(message => (

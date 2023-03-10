@@ -87,7 +87,7 @@ function Messaging(){
           return(
             <>
               <div className="mx-auto max-w-7xl md:mt-3">
-                <div className="bg-gradient-to-b from-zinc-900 mx-2 mb-10 p-5 border-2 border-zinc-700">
+                <div className="bg-gradient-to-b from-zinc-900 mx-2 mb-5 p-3 border-2 border-zinc-700 h-56">
                   <div className="flex flex-col align-center">
                     <UserData username={username} roomHash={roomHash} sharePublicAddress={sharePublicAddress} handleExit={handleExit} handlePublicToggle={handlePublicToggle} />
                   </div>
