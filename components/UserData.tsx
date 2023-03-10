@@ -29,7 +29,7 @@ function UserData({ username, roomHash, sharePublicAddress, handleExit, handlePu
           <h1 className="text">Room ID: <span className="font-bold">{roomHash}</span></h1>
           <h1 className="text truncate">Public Address: <span className="font-bold">{account?.substring(1,20)}...</span></h1>
         </div>
-        <div className="self-center mx-auto md:ml-auto mt-5 md:mt-0">
+        <div className="self-center ml-auto mr-auto md:ml-auto md:mr-0 mt-5 md:mt-0">
           <a href=""
              className="block lg:inline mr-4 mb-3 xl:mb-0 bg-transparent text-white
              w-full hover:bg-gray-700 border-gray-600 border-2

@@ -55,8 +55,8 @@ function ChatInput({ username, channel, sharePublicAddress }: Props){
   }
 
   return (
-    <div className="fixed bottom-0 z-50 w-full bg-black">
-      <form onSubmit={addMessage} className="mx-auto max-w-6xl flex px-10 pt-5 pb-4 h-20 space-x-2 border-t border-gray-900">
+    <div className="fixed bottom-0 z-50 w-full bg-gradient-to-b from-black to-[rgba(255,255,255,0.02)]">
+      <form onSubmit={addMessage} className="mx-auto max-w-7xl flex px-4 pt-5 pb-4 h-20 space-x-2 border-t border-gray-900">
         <input type="text"
                value={input}
                onChange={(e) => setInput(e.target.value)}
