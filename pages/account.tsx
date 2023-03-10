@@ -134,7 +134,7 @@ export default function Account({ user }: { user: User }) {
             </div>
           }
         >
-          <p className="text-xl mt-8 mb-4 font-semibold">
+          <p className="text-xl mt-8 mb-4 font-semibold truncate">
             {account ? account : undefined}
           </p>
         </Card>

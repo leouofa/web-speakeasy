@@ -26,7 +26,12 @@ export default function SalesHero(){
          </p>
          <a href="#subscribe"
             onClick={scrollToSubscribe}
-            className="inline-flex items-center justify-center px-5 py-3 mr-5 text-base
+            className="inline-flex items-center justify-center
+            px-5 py-3 mr-5
+            mb-4 md:mb-0
+            w-full
+            sm:w-auto
+            text-base
             font-medium text-center text-white rounded-lg
             drop-shadow-xl
             bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-900">
@@ -39,7 +44,11 @@ export default function SalesHero(){
            </svg>
          </a>
          <a href="https://github.com/leouofa/web-speakeasy" target="_blank"
-            className="inline-flex items-center justify-center px-5 py-3 mr-3 text-base
+            className="inline-flex items-center justify-center
+            px-5 py-3 mr-3
+            w-full
+            sm:w-auto
+            text-base
             font-medium text-center text-white rounded-lg
             drop-shadow-xl
             bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-900">
@@ -50,8 +59,8 @@ export default function SalesHero(){
            </svg>
          </a>
        </div>
-       <div className="hidden lg:mt-0 lg:col-span-5 lg:flex">
-         <img src="/screenshot.png" className="w-full ml-12 drop-shadow-xl grayscale" alt="mockup" />
+       <div className="mt-12 lg:mt-0 lg:col-span-5 lg:flex">
+         <img src="/screenshot.png" className="sm:block md:hidden lg:block w-full ml-12 drop-shadow-xl grayscale" alt="mockup" />
        </div>
      </div>
    </section>
