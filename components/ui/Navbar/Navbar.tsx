@@ -16,14 +16,12 @@ const Navbar = () => {
 
   const menuItems = [
     {
-      name: 'Home',
-      url: '/',
-      target: ''
+      name: 'Account',
+      url: '/account',
     },
     {
-      name: 'Pricing',
-      url: '/pricing',
-      target: ''
+      name: 'Sign Out',
+      url: '/sign',
     },
   ]
 
@@ -106,22 +104,17 @@ const Navbar = () => {
 
         </div>
       </nav>
-      <div className="fixed top-[3rem] hidden w-full" ref={menuRef} id="mobile-menu">
-        <div className="px-4 justify-between items-center w-full lg:flex lg:w-auto lg:order-1">
-          <ul className="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-w0">
+      <div className="fixed top-[calc(3rem+15px)] hidden w-full" ref={menuRef} id="mobile-menu">
+        <div className="justify-between items-center w-full border-4 border-zinc-700 rounded drop-shadow-2xl">
+          <ul className="flex flex-col mx-auto font-medium lg:flex-row lg:space-x-8 lg:mt-w0">
             {menuItems.map( (item, index) => (
-              <li onClick={toggleMenu} key={item.name} className="">
-                <Link href={item.url} target={item.target}
-
-                ><a className="block py-2 pr-4 pl-3
-                                              bg-zinc-500
+              <li onClick={toggleMenu} key={item.name} className="border-b border-b-zinc-500 last:border-b-0">
+                <Link href={item.url}><a className="block py-4 pr-4 pl-3
+                                              bg-zinc-900
                                               text-gray-300
                                               border-zinc-700
                                               hover:bg-zinc-700
-                                              lg:hover:text-white
-                                              lg:hover:bg-transparent
-                                              lg:border-0
-                                              lg:p-0
+
                                               ">{item.name}</a></Link>
               </li>
             ))}
