@@ -9,7 +9,9 @@ type Props = {
 }
 
 function ChatRoom({ username, roomHash }: Props){
-  const [messages, setMessages] = useState<any[]>([]);
+  const [messages, setMessages] = useState<Message[]>([]);
+  const messageRef = useRef(messages)
+
   const [bottomOfChat, _setBottomOfChat] = useState<boolean>(false)
   const bottomOfChatRef = useRef<any>(true)
   const messageEl = useRef<HTMLDivElement>(null)
@@ -33,22 +35,24 @@ function ChatRoom({ username, roomHash }: Props){
     }
   }, [])
 
+  useEffect(() => { messageRef.current = messages}, [messages])
+
   useEffect(() => {
     if (!roomHash) return;
 
     const channel = clientPusher.subscribe(roomHash);
 
     channel.bind('new-message', async (data: Message) => {
-      if(messages?.find((message) => message.id === data.id )) return;
+      if( messageRef.current && messageRef.current.find((message) => message.id === data.id )) return;
 
-      setMessages([...messages, data])
+      setMessages([...messageRef.current, data])
     });
 
     return () => {
       channel.unbind_all();
       channel.unsubscribe();
     }
-  }, [messages, roomHash, clientPusher])
+  }, [])
 
   const handleScroll = (e:any) => {
     const bottom = e.target.scrollHeight - e.target.scrollTop === e.target.clientHeight;
