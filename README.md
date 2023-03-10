@@ -1,19 +1,16 @@
-# Next.js Subscription Payments Starter
+# The Web Speakeasy 🚪
 
-The all-in-one starter kit for high-performance SaaS applications.
+The decentralized chat messaging application.
 
 ## Features
 
+- Complete On-device encryption.
+- Tiny codebase. Small attack vector.
+- Real-time messaging with [Pusher](https://pusher.com/docs/)
 - Secure user management and authentication with [Supabase](https://supabase.io/docs/guides/auth)
-- Powerful data access & management tooling on top of PostgreSQL with [Supabase](https://supabase.io/docs/guides/database)
+- Data access & management tooling on top of PostgreSQL with [Supabase](https://supabase.io/docs/guides/database)
 - Integration with [Stripe Checkout](https://stripe.com/docs/payments/checkout) and the [Stripe customer portal](https://stripe.com/docs/billing/subscriptions/customer-portal)
 - Automatic syncing of pricing plans and subscription statuses via [Stripe webhooks](https://stripe.com/docs/webhooks)
-
-## Demo
-
-- https://subscription-payments.vercel.app/
-
-[![Screenshot of demo](./public/demo.png)](https://subscription-payments.vercel.app/)
 
 ## Architecture
 
@@ -27,7 +24,7 @@ The Vercel deployment will guide you through creating a Supabase account and pro
 
 To get started, click the "Deploy with Vercel" button below.
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https%3A%2F%2Fgithub.com%2Fvercel%2Fnextjs-subscription-payments&project-name=nextjs-subscription-payments&repo-name=nextjs-subscription-payments&demo-title=Next.js%20Subscription%20Payments%20Starter&demo-description=Demo%20project%20on%20Vercel&demo-url=https%3A%2F%2Fsubscription-payments.vercel.app&demo-image=https%3A%2F%2Fsubscription-payments.vercel.app%2Fdemo.png&integration-ids=oac_jUduyjQgOyzev1fjrW83NYOv&external-id=nextjs-subscription-payments)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fleouofa%2Fweb-speakeasy&project-name=my-speakeasy&repository-name=my-speakeasy&demo-title=WebSpeaksy&demo-description=A%20private%20messaging%20platform%20backed%20by%20Next.js%20and%20Metamask&demo-url=https%3A%2F%2Fwww.webspeakeasy.com&integration-ids=oac_jUduyjQgOyzev1fjrW83NYOv&external-id=nextjs-subscription-payments)
 
 [![Screenshot of Vercel deployment](./public/vercel-deploy.png)](https://vercel.com/new/git/external?repository-url=https%3A%2F%2Fgithub.com%2Fvercel%2Fnextjs-subscription-payments&project-name=nextjs-subscription-payments&repo-name=nextjs-subscription-payments&demo-title=Next.js%20Subscription%20Payments%20Starter&demo-description=Demo%20project%20on%20Vercel&demo-url=https%3A%2F%2Fsubscription-payments.vercel.app&demo-image=https%3A%2F%2Fsubscription-payments.vercel.app%2Fdemo.png&integration-ids=oac_jUduyjQgOyzev1fjrW83NYOv&external-id=nextjs-subscription-payments)
 
@@ -115,6 +112,17 @@ You can use the [Supabase CLI](https://supabase.com/docs/reference/cli/usage#sup
 ```bash
 supabase gen types typescript --db-url "postgresql://postgres:[YOUR-PASSWORD]@db.[YOUR-PROJECT-REF].supabase.co:5432/postgres" > types_db.ts
 ```
+
+## Configuring Pusher
+To interact with Pusher, we need to add more [Environment Variables](https://vercel.com/docs/concepts/projects/environment-variables) to vercel dashboard.
+- ```PUSHER_APP_ID```
+- ```PUSHER_SECRET```
+- ```NEXT_PUBLIC_PUSHER_CLUSTER```
+- ```NEXT_PUBLIC_PUSHER_CLIENT_KEY```
+
+1. Signup for a free [Pusher](https://www.pusher.com) account. 
+2. Create new app under (channel not beam), 
+3. Head over the ```API Keys``` section on the left and populate the missing environment variables.
 
 ### That's it
 
