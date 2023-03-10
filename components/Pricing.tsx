@@ -73,9 +73,8 @@ export default function Pricing({ products }: Props) {
           <h1 className="text-4xl font-extrabold text-white sm:text-center sm:text-6xl">
             Pricing Plans
           </h1>
-          <p className="mt-5 text-xl text-zinc-200 sm:text-center sm:text-2xl max-w-2xl m-auto">
-            Start building for free, then add a site plan to go live. Account
-            plans unlock additional features.
+          <p className="mt-5 text-xl text-zinc-200 sm:text-center sm:text-2xl max-w-xl m-auto">
+            Subscribe now and get start chatting without the feeling of being watched.
           </p>
           <div className="relative self-center mt-6 bg-zinc-900 rounded-lg p-0.5 flex sm:mt-8 border border-zinc-800">
             <button
