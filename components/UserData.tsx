@@ -31,8 +31,11 @@ function UserData({ username, roomHash, sharePublicAddress, handleExit, handlePu
         </div>
         <div className="self-center ml-auto mr-auto md:ml-auto md:mr-0 mt-5 md:mt-0">
           <a href=""
-             className="block lg:inline mr-4 mb-3 xl:mb-0 bg-transparent text-white
-             w-full hover:bg-gray-700 border-gray-600 border-2
+             className="block lg:inline mr-4
+                mb-3 md:mb-1 xl:mb-0
+                mt-0 md:mt-[-5px] lg:mt-0
+                bg-transparent text-white
+                w-full hover:bg-gray-700 border-gray-600 border-2
                 focus:ring-0 focus:outline-none focus:ring-gray-100
                 font-medium rounded-lg text-sm px-10 py-2.5
                 text-center disabled:opacity-50 disabled:cursor-not-allowed"
