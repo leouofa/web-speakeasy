@@ -55,7 +55,8 @@ function ChatRoom({ username, roomHash }: Props){
   }, [])
 
   const handleScroll = (e:any) => {
-    const bottom = e.target.scrollHeight - e.target.scrollTop === e.target.clientHeight;
+    const treshHold = 150
+    const bottom = e.target.scrollHeight - e.target.scrollTop < e.target.clientHeight + treshHold;
     if (bottom) {
       setBottomOfChat(true)
     } else {
