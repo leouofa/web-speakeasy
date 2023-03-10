@@ -4,7 +4,7 @@ import s from './Navbar.module.css';
 import { useRouter } from 'next/router';
 import { useUser } from 'utils/useUser';
 import { useSupabaseClient } from '@supabase/auth-helpers-react';
-import { useRef, useState } from 'react';
+import { MouseEvent, useRef, useState } from 'react';
 
 const Navbar = () => {
   const router = useRouter();
@@ -34,6 +34,12 @@ const Navbar = () => {
 
     setIsOpen(!isOpen);
   };
+
+  const handleLogout = async (e: MouseEvent) => {
+    e.preventDefault()
+    await supabaseClient.auth.signOut();
+    router.push('/signin');
+  }
 
   return (
     <>
@@ -109,7 +115,7 @@ const Navbar = () => {
           <ul className="flex flex-col mx-auto font-medium lg:flex-row lg:space-x-8 lg:mt-w0">
             {menuItems.map( (item, index) => (
               <li onClick={toggleMenu} key={item.name} className="border-b border-b-zinc-500 last:border-b-0">
-                <Link href={item.url}><a className="block py-4 pr-4 pl-3
+                <Link href={item.url}><a onClick={item.name == 'Sign Out' ? handleLogout : toggleMenu} className="block py-4 pr-4 pl-3
                                               bg-zinc-900
                                               text-gray-300
                                               border-zinc-700
