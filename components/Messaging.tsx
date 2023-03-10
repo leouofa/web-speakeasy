@@ -86,8 +86,8 @@ function Messaging(){
         if(roomHash.length > 0) {
           return(
             <>
-              <div className="mx-auto max-w-6xl mt-5">
-                <div className="bg-gradient-to-bl bg-from-gray-900 mx-6 mb-10 p-5 rounded-2xl border-2 border-gray-700">
+              <div className="mx-auto max-w-7xl md:mt-3">
+                <div className="bg-gradient-to-b from-zinc-900 mx-2 mb-10 p-5 border-2 border-zinc-700">
                   <div className="flex flex-col align-center">
                     <UserData username={username} roomHash={roomHash} sharePublicAddress={sharePublicAddress} handleExit={handleExit} handlePublicToggle={handlePublicToggle} />
                   </div>
