@@ -63,7 +63,7 @@ const Navbar = () => {
                   </Link>
                   <span
                     className="hidden md:block inline-flex items-center leading-6 font-medium transition
-                      ease-in-out border-2 border-gray-300 px-4 py-2 rounded-xl"
+                      ease-in-out border-2 border-gray-300 px-4 py-2 rounded-xl cursor-pointer"
                     onClick={async () => {
                       await supabaseClient.auth.signOut();
                       router.push('/signin');

@@ -1,7 +1,7 @@
 import { ProductWithPrice } from '../types';
-import Pricing from '@/components/Pricing';
-import SalesHero from '@/components/SalesHero';
-import FeaturesHero from '@/components/FeaturesHero';
+import Pricing from 'components/Pricing';
+import SalesHero from 'components/SalesHero';
+import FeaturesHero from 'components/FeaturesHero';
 
 interface Props {
   products: ProductWithPrice[];

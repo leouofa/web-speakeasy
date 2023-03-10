@@ -13,15 +13,13 @@ export default function SalesHero(){
 
  return(
    <section className="bg-gradient-to-b from-zinc-800 to-zinc-900">
-     <div className="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-52 lg:grid-cols-12">
+     <div className="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-40 lg:grid-cols-12">
        <div className="mr-auto place-self-center lg:col-span-7">
          <h1
-           className="bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 bg-clip-text text-3xl font-extrabold text-transparent sm:text-6xl mb-4 pb-2 drop-shadow-2xl"
+           className="text-white text-3xl font-extrabold sm:text-6xl mb-4 pb-2 drop-shadow-2xl"
          >
            Sidestep surveillance with a our decentralized chat app.
          </h1>
-         {/*<h1*/}
-         {/*  className="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-5xl text-white">Beat online surveillance with decentralized messaging platform.</h1>*/}
          <p className="max-w-2xl mb-6 font-light lg:mb-8 md:text-lg lg:text-xl text-gray-400">
            Open source, MetaMask powered, business in a box that anyone can run and create a safe space for conversation inside their community.
 
@@ -42,7 +40,7 @@ export default function SalesHero(){
          </a>
        </div>
        <div className="hidden lg:mt-0 lg:col-span-5 lg:flex">
-         <img src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/hero/phone-mockup.png" alt="mockup" />
+         <img src="/screenshot.png" className="w-full ml-24 drop-shadow-2xl grayscale" alt="mockup" />
        </div>
      </div>
    </section>
