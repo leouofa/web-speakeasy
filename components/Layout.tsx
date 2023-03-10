@@ -17,7 +17,7 @@ export default function Layout({ children, meta: pageMeta }: Props) {
     title: 'WebSpeakeasy | Making Secure Communication Easy',
     description: 'We combine cutting edge encryption techniques with the safety of speakeasies to create the ' +
       'most secure communication channel available today.',
-    cardImage: '/og.png',
+    cardImage: '/icon.png',
     ...pageMeta
   };
 
