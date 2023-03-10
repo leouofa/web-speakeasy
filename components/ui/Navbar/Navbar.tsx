@@ -52,8 +52,8 @@ const Navbar = () => {
             <div className="flex flex-1 items-center">
               <Link href="/">
                 <a className={s.logo} aria-label="Logo">
-                  <span className="bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 bg-clip-text font-bold text-transparent font-extrabold">WEB
-                    <span className=""> | SPEAKEASY</span>
+                  <span className="bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 bg-clip-text font-bold text-transparent font-extrabold">W<span className="hidden md:inline-block">EB</span>
+                    <span className=""> | S<span className="hidden md:inline-block">PEAKEASY</span></span>
                   </span>
                 </a>
               </Link>
