@@ -55,7 +55,8 @@ function ChatRoom({ username, roomHash }: Props){
   }, [])
 
   const handleScroll = (e:any) => {
-    const bottom = e.target.scrollHeight - e.target.scrollTop === e.target.clientHeight;
+    const treshHold = 150
+    const bottom = e.target.scrollHeight - e.target.scrollTop < e.target.clientHeight + treshHold;
     if (bottom) {
       setBottomOfChat(true)
     } else {
@@ -65,7 +66,7 @@ function ChatRoom({ username, roomHash }: Props){
 
   return (
     <div className="overflow-hidden ">
-      <div className="space-y-5 px-5 pt-8 pb-32 max-w-2xl xl:max-w-4xl mx-auto overflow-y-auto h-[calc(100vh-23rem-1.25rem)]"
+      <div className="space-y-5 px-5 pt-8 pb-32 max-w-2xl xl:max-w-4xl mx-auto overflow-y-auto h-[calc(100vh-23rem-1.25rem)] lg:h-[calc(100vh-16rem-1.25rem)]"
            onScroll={handleScroll}
            ref={messageEl}>
         {(messages).map(message => (
