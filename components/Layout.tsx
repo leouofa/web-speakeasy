@@ -14,7 +14,7 @@ interface Props {
 export default function Layout({ children, meta: pageMeta }: Props) {
   const router = useRouter();
   const meta = {
-    title: 'WebSpeakeasy | Making Secure Communication Easy',
+    title: 'Web Speakeasy – Making Secure Communication Possible',
     description: 'We combine cutting edge encryption techniques with the safety of speakeasies to create the ' +
       'most secure communication channel available today.',
     cardImage: '/icon.png',
