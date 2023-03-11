@@ -53,7 +53,7 @@ export default function Pricing({ products }: Props) {
           <p className="text-6xl font-extrabold text-white sm:text-center sm:text-6xl">
             No subscription pricing plans found. Create them in your{' '}
             <a
-              className="text-pink-500 underline"
+              className="text-zinc-500 underline"
               href="https://dashboard.stripe.com/products"
               rel="noopener noreferrer"
               target="_blank"
@@ -73,9 +73,8 @@ export default function Pricing({ products }: Props) {
           <h1 className="text-4xl font-extrabold text-white sm:text-center sm:text-6xl">
             Pricing Plans
           </h1>
-          <p className="mt-5 text-xl text-zinc-200 sm:text-center sm:text-2xl max-w-2xl m-auto">
-            Start building for free, then add a site plan to go live. Account
-            plans unlock additional features.
+          <p className="mt-5 text-xl text-zinc-200 sm:text-center sm:text-2xl max-w-xl m-auto">
+            Subscribe now and get start chatting without the feeling of being watched.
           </p>
           <div className="relative self-center mt-6 bg-zinc-900 rounded-lg p-0.5 flex sm:mt-8 border border-zinc-800">
             <button
@@ -85,7 +84,7 @@ export default function Pricing({ products }: Props) {
                 billingInterval === 'month'
                   ? 'relative w-1/2 bg-zinc-700 border-zinc-800 shadow-sm text-white'
                   : 'ml-0.5 relative w-1/2 border border-transparent text-zinc-400'
-              } rounded-md m-1 py-2 text-sm font-medium whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-opacity-50 focus:z-10 sm:w-auto sm:px-8`}
+              } rounded-md m-1 py-2 text-sm font-medium whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-zinc-500 focus:ring-opacity-50 focus:z-10 sm:w-auto sm:px-8`}
             >
               Monthly billing
             </button>
@@ -96,7 +95,7 @@ export default function Pricing({ products }: Props) {
                 billingInterval === 'year'
                   ? 'relative w-1/2 bg-zinc-700 border-zinc-800 shadow-sm text-white'
                   : 'ml-0.5 relative w-1/2 border border-transparent text-zinc-400'
-              } rounded-md m-1 py-2 text-sm font-medium whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-opacity-50 focus:z-10 sm:w-auto sm:px-8`}
+              } rounded-md m-1 py-2 text-sm font-medium whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-zinc-500 focus:ring-opacity-50 focus:z-10 sm:w-auto sm:px-8`}
             >
               Yearly billing
             </button>
@@ -119,7 +118,7 @@ export default function Pricing({ products }: Props) {
                 className={cn(
                   'rounded-lg shadow-sm divide-y divide-zinc-600 bg-zinc-900',
                   {
-                    'border border-pink-500': subscription
+                    'border border-zinc-500': subscription
                       ? product.name === subscription?.prices?.products?.name
                       : product.name === 'Freelancer'
                   }

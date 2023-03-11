@@ -60,7 +60,7 @@ export default function SalesHero(){
          </a>
        </div>
        <div className="mt-12 lg:mt-0 lg:col-span-5 lg:flex">
-         <img src="/screenshot.png" className="sm:block md:hidden lg:block w-full ml-12 drop-shadow-xl grayscale" alt="mockup" />
+         <img src="/screenshot.png" className="sm:block md:hidden lg:block w-full ml-12 drop-shadow-xl" alt="mockup" />
        </div>
      </div>
    </section>

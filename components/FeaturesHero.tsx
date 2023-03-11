@@ -16,7 +16,7 @@ export default function FeaturesHero(){
     },
     {
       name: 'On-Device Encryption',
-      description: 'Everything is encrypted on device. There are blackboxes or private keys to steal.',
+      description: 'Everything is encrypted on device. There are no blackboxes or private keys to steal.',
       icon: LockClosedIcon
     },
     {
@@ -26,17 +26,17 @@ export default function FeaturesHero(){
     },
     {
       name: 'Decentralized Identity',
-      description: 'The chats are not stored anywhere, but rather pushed in real-time to all connected clients.',
+      description: 'Securely share your public address without revealing your identity.',
       icon: UserCircleIcon
     },
     {
       name: 'Open-Source',
-      description: 'Tiny attack vector combined with fully auditable code breeds trust.',
+      description: 'Tiny code base means smaller attack vector and easily auditable code.',
       icon: CodeBracketSquareIcon
     },
     {
       name: 'Business in a Box',
-      description: 'The chats are not stored anywhere, but rather pushed in real-time to all connected clients.',
+      description: 'Clone the repo, signup for associated services, and run your own privacy serving businesses.',
       icon: BuildingStorefrontIcon
     },
   ]
