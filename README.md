@@ -1,6 +1,6 @@
-# The Web Speakeasy 🚪
+# The Web Speakeasy 🥷
 
-The decentralized chat messaging application.
+The decentralized chat messaging business-in-a-box. Clone, host it, make money and contribute back to the community.
 
 ## Features
 
