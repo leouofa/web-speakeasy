@@ -2,13 +2,15 @@ import { useEffect, useRef, useState } from 'react';
 import { clientPusher } from '../serverPusher';
 import { Message } from '../typings';
 import MessageComponent from 'components/MessageComponent';
+import CryptoJS from 'crypto-js';
 
 type Props = {
   username: string;
+  digest: string;
   roomHash: string;
 }
 
-function ChatRoom({ username, roomHash }: Props){
+function ChatRoom({ username, digest, roomHash }: Props){
   const [messages, setMessages] = useState<Message[]>([]);
   const messageRef = useRef(messages)
 
@@ -45,6 +47,9 @@ function ChatRoom({ username, roomHash }: Props){
     channel.bind('new-message', async (data: Message) => {
       if( messageRef.current && messageRef.current.find((message) => message.id === data.id )) return;
 
+      const decryptedMessage = decryptWithAES(data.message)
+      data.message = decryptedMessage
+
       setMessages([...messageRef.current, data])
     });
 
@@ -63,6 +68,12 @@ function ChatRoom({ username, roomHash }: Props){
       setBottomOfChat(false)
     }
   }
+
+  const decryptWithAES = (ciphertext: string) => {
+    const bytes = CryptoJS.AES.decrypt(ciphertext, digest);
+    const originalText = bytes.toString(CryptoJS.enc.Utf8);
+    return originalText;
+  };
 
   return (
     <div className="overflow-hidden ">
