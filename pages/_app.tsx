@@ -28,8 +28,8 @@ export default function MyApp({ Component, pageProps }: AppProps) {
           <MyUserContextProvider>
             <Layout>
               <Component {...pageProps} />
-              <script defer data-domain="webspeakeasy.com" src="https://plausible.io/js/script.js"></script>
             </Layout>
+            {/*<script defer data-domain="webspeakeasy.com" src="https://plausible.io/js/script.js"></script>*/}
           </MyUserContextProvider>
         </SessionContextProvider>
       </DAppProvider>

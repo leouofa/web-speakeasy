@@ -26,12 +26,14 @@ function Messaging(){
   const [username, setUsername] = useState(generate_username());
   const [passphrase, setPassphrase] = useState<string>("");
   const [roomHash, setRoomHash] = useState<string>("");
+  const [digest, setDigest] = useState<string>("");
   const [sharePublicAddress, setSharePublicAddress] = useState<boolean>(false)
 
   const { activateBrowserWallet, account } = useEthers()
 
   const updateRoomData = ({ roomName, digest}: RoomDataProps) => {
     setPassphrase(roomName);
+    setDigest(digest)
     setRoomHash(digest.substring(0,20));
   }
 
@@ -94,8 +96,8 @@ function Messaging(){
                 </div>
               </div>
 
-              <ChatRoom username={username} roomHash={roomHash} />
-              <ChatInput username={username} channel={roomHash} sharePublicAddress={sharePublicAddress} />
+              <ChatRoom username={username} roomHash={roomHash} digest={digest} />
+              <ChatInput username={username} channel={roomHash} digest={digest} sharePublicAddress={sharePublicAddress} />
             </>
           )
         }

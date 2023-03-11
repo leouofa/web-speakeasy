@@ -5,13 +5,16 @@ import {v4 as uuid} from 'uuid';
 import {Message} from "../typings";
 import { useEthers } from '@usedapp/core';
 
+import CryptoJS from 'crypto-js';
+
 type Props = {
   username: string;
   channel: string;
+  digest: string;
   sharePublicAddress: boolean;
 }
 
-function ChatInput({ username, channel, sharePublicAddress }: Props){
+function ChatInput({ username, channel, digest, sharePublicAddress }: Props){
   const [input, setInput] = useState("");
   const { account } = useEthers()
 
@@ -28,9 +31,11 @@ function ChatInput({ username, channel, sharePublicAddress }: Props){
     const id = uuid();
     const public_address = (sharePublicAddress ? account : '');
 
+    // console.log (encryptWithAES(messageToSend))
+
     const message: Message = {
       id,
-      message: messageToSend,
+      message: encryptWithAES(messageToSend),
       created_at: Date.now(),
       username: username,
       channel: channel,
@@ -53,6 +58,11 @@ function ChatInput({ username, channel, sharePublicAddress }: Props){
 
     uploadMessage()
   }
+
+  const encryptWithAES = (text: string) => {
+    return CryptoJS.AES.encrypt(text, digest).toString();
+  };
+
 
   return (
     <div className="fixed bottom-0 z-50 w-full bg-gradient-to-b from-black to-[rgba(255,255,255,0.02)]">
