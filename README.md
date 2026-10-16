@@ -1,10 +1,78 @@
 # The Web Speakeasy 🥷
 
-The decentralized chat messaging business-in-a-box. Clone, host it, make money and contribute back to the community.
+A self-hosted, end-to-end encrypted messaging app that hides in plain sight.
+
+Messages are encrypted on-device before they ever leave the browser, and they travel over ordinary [Pusher](https://pusher.com/docs/) traffic — so an eavesdropper can't read what you send, and can't even tell that a conversation is happening. Built for crypto communities, DAOs, and anyone who wants a conversation nobody can prove took place. Clone it, host it yourself, and run it for your own community.
+
+## Why Web Speakeasy is good for private communication
+
+### On-device, end-to-end encryption
+
+Your passphrase never leaves your browser. When you enter it at the door, it is hashed locally with SHA-256: the digest becomes the AES key, and the first 20 characters of that digest become the room's [Pusher](https://pusher.com/docs/) channel name. Messages are AES-encrypted on the device *before* they are sent, and only decrypted on the device of someone who knows the same passphrase. The server is a dumb relay: it forwards ciphertext, never sees plaintext, and never holds your key.
+
+### How a message travels
+
+```mermaid
+sequenceDiagram
+    autonumber
+    participant A as Alice (browser)
+    participant S as Your server (/api/addMessage)
+    participant P as Pusher (TLS relay)
+    participant B as Bob (browser)
+
+    Note over A,B: Shared out-of-band: the passphrase
+    A->>A: SHA-256(passphrase) -> digest<br/>channel = digest[0:20], key = digest
+    B->>B: same digest -> same channel + key
+    A->>A: AES-encrypt message with key
+    A->>S: POST channel + ciphertext
+    S->>P: trigger(channel, "new-message", ciphertext)
+    Note over S: Never sees plaintext, stores nothing
+    P-->>B: broadcast ciphertext
+    B->>B: AES-decrypt with key
+```
+
+### Nothing to leak
+
+There is no messages table and no history endpoint. Chats are pushed in real time to connected clients and live only in their browser memory for the session, so there is no archive to subpoena, breach, or leak. Metadata is kept minimal too: your chat identity is a randomly generated `patron-<number>` name, and your wallet address is shared only if you explicitly choose to.
+
+### Hidden in plain sight (security through obscurity)
+
+Encryption keeps your messages secret. Obscurity keeps the *existence* of the conversation secret.
+
+- Room channels are 20-character hex strings derived from a hash of the passphrase. Without the passphrase you cannot compute or guess the channel, so you cannot even tell that a room exists.
+- The transport is standard, TLS-encrypted Pusher traffic. It is indistinguishable from the enormous volume of ordinary applications that use Pusher: no custom protocol, no unusual ports, nothing that flags "someone is communicating privately here."
+- The idea is that an interceptor has to know a conversation is taking place before they can even try to intercept it — and this design is built so they don't. Blending into normal Pusher traffic makes it hard to know it is happening in the first place.
+
+### Looks like an ordinary SaaS business
+
+Not all of the obscurity lives in the channel names or the wire traffic — some of it is in the front door. To anyone who stumbles onto the site without knowing what it is, Web Speakeasy presents as a completely conventional subscription product: marketing pages, pricing tiers, [Stripe Checkout](https://stripe.com/docs/payments/checkout), a customer billing portal, and real, paid plans.
+
+That cover is deliberate. The Stripe integration and plan purchases are genuine — real customers, real payments, real invoices — which is exactly what makes them convincing. Anyone who finds the site has to conclude they're looking at an ordinary paid web app rather than a private communication channel.
+
+Put together, the layers stack: encryption hides the message, hash-derived channels hide the room, and the ordinary SaaS veneer hides the whole thing from casual discovery.
+
+### Crypto-native identity (optional disclosure)
+
+Web Speakeasy is built with crypto communities in mind:
+
+- Connect with MetaMask to enter your speakeasy (via [@usedapp/core](https://usedapp.io/) and ethers). There is no email address or real-name handle attached to your chat identity.
+- You appear to the room as a throwaway `patron-<number>` name. Your wallet address stays private by default.
+- Flip on **Share Address Public** and your address is attached only to the messages you send. That gives crypto-native peers a way to pay you or verify you on-chain — a decentralized identity handshake that replaces "send me your number."
+- The wallet is intentionally decoupled from access and billing, so your on-chain identity is never forced to become public just to use the app.
+
+### Self-hosted by design
+
+You run the relay. Keys and passphrases are generated on your users' devices and never leave them, and no third-party platform holds your message log or user records. Pusher sees only ciphertext and opaque channel names; the rest of the stack (Supabase, Stripe, Vercel) is under your control.
+
+> **A note on honesty:** obscurity is a second layer *on top of* on-device encryption, not a replacement for it. Use both.
 
 ## Features
 
 - Complete On-device encryption.
+- Stealth: indistinguishable from normal Pusher traffic — hard to detect that a conversation is happening at all.
+- Zero message persistence — nothing is written to the database.
+- Wallet-native identity — connect with MetaMask; reveal your public address only when you choose.
+- Plausible cover — presents as an ordinary paid SaaS product, with real Stripe billing.
 - Tiny codebase. Small attack vector.
 - Real-time messaging with [Pusher](https://pusher.com/docs/)
 - Secure user management and authentication with [Supabase](https://supabase.io/docs/guides/auth)
